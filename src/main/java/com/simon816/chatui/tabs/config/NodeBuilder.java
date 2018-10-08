@@ -38,15 +38,15 @@ class NodeBuilder implements ITextDrawable {
     public Text draw(PlayerContext ctx) {
         Text.Builder builder = Text.builder();
         int rem = ctx.height;
-        builder.append(Text.of(TextStyles.BOLD, "Create new node"), Text.NEW_LINE);
-        builder.append(Text.of("Path: ", TextColors.GREEN, Joiner.on('.').join(this.tab.control.getNode().getPath())), Text.NEW_LINE);
+        builder.append(Text.of(TextStyles.BOLD, "Create new node"), Text.newLine());
+        builder.append(Text.of("Path: ", TextColors.GREEN, Joiner.on('.').join(this.tab.control.getNode().getPath())), Text.newLine());
         if (keyRequired()) {
-            builder.append(Text.of("Key: ", getKeyText()), Text.NEW_LINE);
+            builder.append(Text.of("Key: ", getKeyText()), Text.newLine());
             rem -= 1;
         }
         builder.append(Text.of("Value Type: ",
                 this.valueTypeName == null ? TextColors.RED : TextColors.GREEN,
-                this.valueTypeName == null ? "" : this.valueTypeName), Text.NEW_LINE);
+                this.valueTypeName == null ? "" : this.valueTypeName), Text.newLine());
         rem -= 3;
         if (this.valueTypeName == null) {
             rem -= addValueTypes(builder);
@@ -59,7 +59,7 @@ class NodeBuilder implements ITextDrawable {
                     this.valueType != null ? " [Type in chat to change]" : ""));
         }
         for (int i = 0; i < rem - 1; i++) {
-            builder.append(Text.NEW_LINE);
+            builder.append(Text.newLine());
         }
         builder.append(Text.builder("[Cancel]").color(TextColors.RED).onClick(onClick(() -> {
             this.tab.nodeBuilder = null;
@@ -88,12 +88,12 @@ class NodeBuilder implements ITextDrawable {
     }
 
     private int addValueTypes(Text.Builder builder) {
-        builder.append(simpleType("String", ConfigEntry.ValueType.STRING, ""), Text.NEW_LINE,
-                simpleType("Boolean", ConfigEntry.ValueType.BOOLEAN, Boolean.FALSE), Text.NEW_LINE,
-                simpleType("Long", ConfigEntry.ValueType.NUMBER, Long.valueOf(0)), Text.NEW_LINE,
-                simpleType("Double", ConfigEntry.ValueType.NUMBER, Double.valueOf(0)), Text.NEW_LINE,
-                complexType("Map", Collections.emptyMap()), Text.NEW_LINE,
-                complexType("List", Collections.emptyList()), Text.NEW_LINE);
+        builder.append(simpleType("String", ConfigEntry.ValueType.STRING, ""), Text.newLine(),
+                simpleType("Boolean", ConfigEntry.ValueType.BOOLEAN, Boolean.FALSE), Text.newLine(),
+                simpleType("Long", ConfigEntry.ValueType.NUMBER, Long.valueOf(0)), Text.newLine(),
+                simpleType("Double", ConfigEntry.ValueType.NUMBER, Double.valueOf(0)), Text.newLine(),
+                complexType("Map", Collections.emptyMap()), Text.newLine(),
+                complexType("List", Collections.emptyList()), Text.newLine());
         return 6;
     }
 

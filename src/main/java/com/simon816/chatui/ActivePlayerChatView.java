@@ -225,7 +225,7 @@ public class ActivePlayerChatView implements PlayerChatView {
         // Force clear the screen
         this.isUpdating = true;
         for (int i = 0; i < this.playerContext.height; i++) {
-            this.playerContext.getPlayer().sendMessage(Text.NEW_LINE);
+            this.playerContext.getPlayer().sendMessage(Text.newLine());
         }
         ChatUI.instance().reInit(getPlayer());
         this.isUpdating = false;

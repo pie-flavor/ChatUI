@@ -58,11 +58,11 @@ configurations {
 }
 
 dependencies {
-    libCompile 'org.spongepowered:spongeapi:7.0.0'
+    libCompile 'org.spongepowered:spongeapi:8.0.0-SNAPSHOT'
     fastutil 'it.unimi.dsi:fastutil:7.0.12' // from spongecommon
 
     compile sourceSets.lib.output
-    compile ('org.spongepowered:spongecommon:7.0.0-SNAPSHOT:dev') {
+    compile ('org.spongepowered:spongecommon:8.0.0-SNAPSHOT:dev') {
         exclude group: 'org.spongepowered', module: 'testplugins'
     }
     shaded 'org.bstats:bstats-sponge-lite:1.1'
