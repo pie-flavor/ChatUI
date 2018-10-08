@@ -117,7 +117,7 @@ public class ChatUILib {
                             if (!(src instanceof Player)) {
                                 throw new CommandException(Text.of("source must be a player"));
                             }
-                            getView(src).handleIncoming(Text.EMPTY);
+                            getView(src).handleIncoming(Text.empty());
                             return CommandResult.success();
                         }).build(), "empty")
                 .arguments(GenericArguments.remainingRawJoinedStrings(argParam))

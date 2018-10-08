@@ -55,11 +55,17 @@ class TextSplitter {
 
         private static TextStyle inheritStyle(TextStyle base, TextStyle overrides) {
             // styles from base always exist as it must derive from DEFAULTS
-            return new TextStyle(overrides.isBold().orElse(base.isBold().get()),
-                    overrides.isItalic().orElse(base.isItalic().get()),
-                    overrides.hasUnderline().orElse(base.hasUnderline().get()),
-                    overrides.hasStrikethrough().orElse(base.hasStrikethrough().get()),
-                    overrides.isObfuscated().orElse(base.isObfuscated().get()));
+//            return TextStyles.of(overrides.isBold().orElse(base.isBold().get()),
+//                    overrides.isItalic().orElse(base.isItalic().get()),
+//                    overrides.hasUnderline().orElse(base.hasUnderline().get()),
+//                    overrides.hasStrikethrough().orElse(base.hasStrikethrough().get()),
+//                    overrides.isObfuscated().orElse(base.isObfuscated().get()));
+            return (overrides.isBold().orElse(base.isBold().get()) ? TextStyles.BOLD : TextStyles.NONE)
+                    .and(overrides.isItalic().orElse(base.isItalic().get()) ? TextStyles.ITALIC : TextStyles.NONE)
+                    .and(overrides.hasUnderline().orElse(base.hasUnderline().get()) ? TextStyles.UNDERLINE : TextStyles.NONE)
+                    .and(overrides.hasStrikethrough().orElse(base.hasStrikethrough().get()) ? TextStyles.STRIKETHROUGH : TextStyles.NONE)
+                    .and(overrides.isObfuscated().orElse(base.isObfuscated().get()) ? TextStyles.OBFUSCATED : TextStyles.NONE);
+
         }
 
         public Format with(Text text) {

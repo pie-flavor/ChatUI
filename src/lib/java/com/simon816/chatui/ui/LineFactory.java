@@ -46,7 +46,7 @@ public class LineFactory {
     public void fillBlank(PlayerContext ctx) {
         int remaining = linesRemaining(ctx);
         while (remaining-- > 0) {
-            appendNewLine(Text.EMPTY, ctx);
+            appendNewLine(Text.empty(), ctx);
         }
     }
 

@@ -11,7 +11,7 @@ public interface UIComponent extends ITextDrawable {
         LineFactory factory = new LineFactory();
         draw(ctx, factory);
         factory.fillBlank(ctx);
-        return Text.builder().append(Text.joinWith(Text.NEW_LINE, factory.getLines())).build();
+        return Text.builder().append(Text.joinWith(Text.newLine(), factory.getLines())).build();
     }
 
     void draw(PlayerContext ctx, LineFactory lineFactory);

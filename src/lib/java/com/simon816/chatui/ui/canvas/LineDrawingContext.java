@@ -42,7 +42,7 @@ public class LineDrawingContext {
         for (int i = 0; i < lines.length; i++) {
             Line line = this.lines[i];
             if (line == null) {
-                lines[i] = Text.EMPTY;
+                lines[i] = Text.empty();
                 continue;
             }
             lastNonNull = i;
@@ -173,7 +173,7 @@ public class LineDrawingContext {
 
         public Text toText() {
             if (this.characters.isEmpty()) {
-                return Text.EMPTY;
+                return Text.empty();
             }
             StringBuilder string = new StringBuilder();
             Text.Builder rootBuilder = Text.builder();
