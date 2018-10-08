@@ -71,14 +71,14 @@ dependencies {
 processResources {
     from('src/main/resources') {
         include 'mcmod.info'
-        expand(version: project.version, apiVersionRange: '[7.0.0,8.0.0)', libVersionRange: '[1.0.0,2.0.0)')
+        expand(version: project.version, apiVersionRange: '[8.0.0,9.0.0)', libVersionRange: '[1.0.0,2.0.0)')
     }
 }
 
 processLibResources {
     from('src/lib/resources') {
         include 'mcmod.info'
-        expand(version: project.ext.libVersion, apiVersionRange: '[7.0.0,8.0.0)')
+        expand(version: project.ext.libVersion, apiVersionRange: '[8.0.0,9.0.0)')
     }
 }
 
